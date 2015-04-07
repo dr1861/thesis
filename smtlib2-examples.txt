@@ -1,0 +1,48 @@
+; smt-lib v2 examples:
+;---------------------------------------
+; Example 1: is p&!p true?
+;  result unsat -- there is no value for p such that p and !p is true.
+(set-logic QF_UF)
+(declare-fun p () bool)
+(assert (and p (not p)))
+(check-sat)
+(exit)
+
+;------------------------------------------------------------
+; Example 2: integer arithmetic 
+; are there any values for x and y such that:
+; x+2y = 20
+; and y-x = 2
+(set logic QF_LIA) ; use integer arithmetic logic
+(declare-fun x () Int)
+(declare-fun y () Int)
+(assert (= (+ x (* 2 y)) 20)) ; x+2y = 20
+(assert (= (- x y) 2)) ; y-x = 2
+(check-sat)
+(exit)
+
+;--------------------------------------------------
+; Example 3: a second integer arithmetic example
+(set-logic QF_LIA)
+(declare-fun x () Int)
+(declare-fun y () Int)
+(assert (= (+x (* 2 y)) 20 )) ; x+2y = 20
+(assert (= (- x y) 3)) ; y-x=3
+(check-sat)
+(exit)
+
+;------------------------------------------------------------
+; Example 4: getting values
+(set-option :print-success false)
+(set-option :set-model true)
+(set-option :interactive-mode true)
+(set-logic QF_LIA)
+(declare-fun x () Int)
+(declare-fun y () Int)
+(assert (= (+ x (* 2 y)) 20))
+(assert (= (- x y) 2))
+(check-sat)
+(get-value (x y))
+(exit)
+
+
