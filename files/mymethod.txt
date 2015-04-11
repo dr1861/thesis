@@ -1,0 +1,11 @@
+    public int myMethod(int x, int y) {
+        int z = x + y;
+        if (z > 0) {
+            z = 1;
+        } else {
+            z = z - x;
+        }
+        z = 2 * z;
+        return z;
+    }
+

@@ -1,0 +1,11 @@
+s_string("GET /");  // The manditory first part of an http get request
+s_string_variable("myapp/index.html");  // The string to fuzz is the URL
+s_string_var s_string(" "); // a second variable to be fuzzed
+s_string("HTTP/1.1\r\n");  // Fixed mandatory http version field of the get request
+s_string("User-Agent: Wget/1.13.4\r\n"); // the first of several http headers to ensure completeness of the request
+s_string("Host: 192.168.1.1:80\r\n"); // ip address of the host running the webserver
+s_string("Accept: */*\r\n");
+s_string("Connection: Keep-Alive\r\n");
+s_read_packet();  // Read a response from teh web server
+sleep(3);  // delay before trying again
+s_read_packet();  // try reading a response from the server again
