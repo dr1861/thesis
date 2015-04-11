@@ -1,0 +1,8 @@
+int test(int x, int y)
+{	int z=x+y;
+if (x+2*y == 20)
+	z=0;
+if (x-y == 2)
+	z=-z;
+return z;
+}

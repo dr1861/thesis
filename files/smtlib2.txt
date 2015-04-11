@@ -1,0 +1,10 @@
+(set-option :interactive-mode true) ; provide teh ability to print values that would satisfy the conditions
+(set logic QF_LIA) ; use integer arithmetic logic
+(declare-fun x () Int)
+(declare-fun y () Int)
+(assert (= (+ x (* 2 y)) 20)) ; x+2y = 20
+(assert (= (- x y) 2)) ; y-x = 2
+(check-sat)
+(get-value (x y)) ; print the values of x and y that satisfy these constraints
+(exit)
+
