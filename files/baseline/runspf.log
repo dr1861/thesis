@@ -1,0 +1,50 @@
+Running Symbolic PathFinder ...
+symbolic.dp=choco
+symbolic.string_dp_timeout_ms=0
+symbolic.string_dp=none
+symbolic.choco_time_bound=30000
+symbolic.max_pc_length=2147483647
+symbolic.max_pc_msec=0
+symbolic.min_int=-1000000
+symbolic.max_int=1000000
+symbolic.min_double=-8.0
+symbolic.max_double=7.0
+JavaPathfinder core system v8.0 (rev 2) - (C) 2005-2014 United States Government. All rights reserved.
+
+
+====================================================== system under test
+DiningPhil.main("4")
+
+====================================================== search started: 4/12/15 11:36 AM
+[SEVERE] JPF out of memory
+
+====================================================== search constraint
+JPF out of memory
+
+====================================================== snapshot 
+thread java.lang.Thread:{id:0,name:main,status:RUNNING,priority:5,isDaemon:false,lockCount:0,suspendCount:0}
+  call stack:
+[SEVERE] JPF exception, terminating: exception during out-of-memory termination
+---------------------- JPF error stack trace ---------------------
+gov.nasa.jpf.JPFListenerException: exception during searchConstraintHit() notification
+	at gov.nasa.jpf.search.Search.notifySearchConstraintHit(Search.java:559)
+	at gov.nasa.jpf.JPF.run(JPF.java:644)
+	at gov.nasa.jpf.JPF.start(JPF.java:189)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+	at java.lang.StringBuilder.toString(StringBuilder.java:407)
+	at java.lang.Throwable.printStackTrace(Throwable.java:658)
+	at java.lang.Throwable.printStackTrace(Throwable.java:643)
+	at gov.nasa.jpf.JPFException.printStackTrace(JPFException.java:43)
+	at java.lang.Throwable.printStackTrace(Throwable.java:634)
+Exception in thread "main" java.lang.OutOfMemoryError: GC overhead limit exceeded
+	at java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:68)
+	at java.lang.StringBuilder.<init>(StringBuilder.java:89)
+	at java.lang.StackTraceElement.toString(StackTraceElement.java:172)
+	at java.lang.String.valueOf(String.java:2982)
+	at java.lang.StringBuilder.append(StringBuilder.java:131)
+	at java.lang.Throwable.printStackTrace(Throwable.java:658)
+	at java.lang.Throwable.printStackTrace(Throwable.java:643)
+	at java.lang.Throwable.printStackTrace(Throwable.java:634)
+	at gov.nasa.jpf.tool.RunJPF.main(RunJPF.java:132)
